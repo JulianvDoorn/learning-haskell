@@ -70,3 +70,38 @@ my_zip_with f (x:xs) (y:ys) = [f x y] ++ my_zip_with f xs ys
 
 my_zip :: [a] -> [b] -> [(a, b)]
 my_zip x y = my_zip_with (\x y -> (x, y)) x y
+
+-- Opdracht 5.1.1
+
+data Peano = Zero | Double Peano | Double_Plus_One Peano
+    deriving Show
+
+uitkomst :: Peano -> Int
+uitkomst Zero = 0
+uitkomst (Double_Plus_One x) = uitkomst x * 2 + 1
+uitkomst (Double x) = uitkomst x * 2
+
+d x = Double x
+p x = Double_Plus_One x
+
+zero = Zero
+one = p zero
+two = d one
+three = p one
+four = d two
+five = p two
+six = d three
+seven =  p three
+eight = d four
+nine = p four
+ten = d five
+eleven = p five
+twelve = d six
+thirteen = p six
+fourteen = d seven
+fifteen = p seven
+sixteen = d eight
+seventeen = p eight
+eightteen = d nine
+nineteen = p nine
+twenty = d ten
