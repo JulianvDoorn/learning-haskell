@@ -59,7 +59,7 @@ fac x = reduce (*) [1..x]
 -- Opdracht 4.1.3
 
 my_foldr :: (a -> a -> a) -> a -> [a] -> a
-my_foldr f x xs = reduce (f) (reverse xs ++ [x])
+my_foldr f x xs = reduce (\x y -> f y x) (reverse xs ++ [x])
 
 -- Opdracht 4.1.4
 
